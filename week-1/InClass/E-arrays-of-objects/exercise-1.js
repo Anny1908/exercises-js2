@@ -23,18 +23,20 @@ let person3 = {
 DO NOT EDIT ANYTHING ABOVE THIS LINE
 WRITE YOUR CODE BELOW
 */
+let persons = [person1, person2, person3] // Complete here
+function getName(person) {
+    return person.name
+}
 
-
-let persons = // Complete here
-
-let personNames = // Complete here
-
-let personsYoungerThan28YearsOld = // Complete here
-
-
-/*
-DO NOT EDIT ANYTHING BELOW THIS LINE
-*/
+function isYoungerThan28YearsOld(person) {
+    return person.age < 28
+}
+let personNames = persons.map(getName) // Complete here
+    // let personsYoungerThan28YearsOld = persons.filter(isYoungerThan28YearsOld) // Complete here
+let personsYoungerThan28YearsOld = persons.filter(person => person.age < 28)
+    /*
+    DO NOT EDIT ANYTHING BELOW THIS LINE
+    */
 
 console.log("Question 1: array defined with 3 persons -> ",
     (persons[0] === person1 && persons[1] === person2 && persons[2] === person3) ? 'Passed :)' : 'Not yet :(');

@@ -8,9 +8,9 @@ var dog = {
 };
 
 // WRITE CODE HERE
-
-
-//DO NOT MODIFY BELOW
+dog.name = 'Rex'
+dog.wantsToPlay = true
+    //DO NOT MODIFY BELOW
 console.log(dog.name);
 console.log(dog.wantsToPlay);
 
