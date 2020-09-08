@@ -38,7 +38,13 @@ var writers = [{
     },
 ];
 
-
+for (const key in writers) {
+    let firstName = writers[key].firstName;
+    let lastName = writers[key].lastName;
+    let age = writers[key].age;
+    let occupation = writers[key].occupation;
+    console.log(`Hi, my name is ${firstName} ${lastName}. I am ${age} years old, and work as a ${occupation}.`);
+}
 
 /*
 If you want an extra challenge, only `console.log()` the writers that are alive.

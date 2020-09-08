@@ -6,6 +6,8 @@ Write all your code at the end of the file
 mentors that are in Barcelona and one of the skills is React
 "Hi, my name is {firstName} {lastName}. I work in Barcelona and i know React."
 
+LISTO
+
 2. To those that work in Barcelona, set "Jun1" in the class attribute, 
 and add a new skill to the list "SQL".
 To add elements in an array you can use .push()
@@ -22,7 +24,7 @@ console.log(sequence);
 
 4. Create a function to add a skill to all members in a list of mentors
 
-function addSkill(mentors,newSkill){
+function addSkill(mentors,newSkill){ 
   //your code here
 }
 
@@ -41,63 +43,116 @@ function removeSkill(mentors,newSkill){
 function addStudentLikes(mentors){
   //your code here
 }
-*/ 
+*/
 
-var mentors = [
-  {
-    firstName: "Antonio",
-    lastName: "Miranda",
-    skills: ["JS","React","Node"],
-    class: "Mar1",
-    studentLikes: 0,
-    job:
-      {
-        company: "Google",
-        position: "Senior developer",
-        city: "Barcelona"
-      }
-  },
-  {
-    firstName: "Leo",
-    lastName: "Messi",
-    skills: ["Play football"],
-    class: "Mar3",
-    studentLikes: 0,
-    job:
-      {
-        company: "FC Barcelona",
-        position: "Player",
-        city: "Barcelona"
-      }
-  },
-  {
-    firstName: "John",
-    lastName: "VanDamme",
-    skills: ["React","Angular","Python","Node"],
-    class: "Mar4",
-    studentLikes: 0,
-    job:
-      {
-        company: "Facebook",
-        position: "Software Manager",
-        city: "Chicago"
-      }
-  },  
-  {
-    firstName: "Giorgio",
-    lastName: "Polvara",
-    skills: ["HTML","JS","React"],
-    class: "Mar2",
-    studentLikes: 0,
-    job:
-      {
-        company: "Amazon",
-        position: "Senior developer",
-        city: "Barcelona"
-      }
-  },
+var mentors = [{
+        firstName: "Antonio",
+        lastName: "Miranda",
+        skills: ["JS", "React", "Node"],
+        class: "Mar1",
+        studentLikes: 0,
+        job: {
+            company: "Google",
+            position: "Senior developer",
+            city: "Barcelona"
+        }
+    },
+    {
+        firstName: "Leo",
+        lastName: "Messi",
+        skills: ["Play football"],
+        class: "Mar3",
+        studentLikes: 0,
+        job: {
+            company: "FC Barcelona",
+            position: "Player",
+            city: "Barcelona"
+        }
+    },
+    {
+        firstName: "John",
+        lastName: "VanDamme",
+        skills: ["React", "Angular", "Python", "Node"],
+        class: "Mar4",
+        studentLikes: 0,
+        job: {
+            company: "Facebook",
+            position: "Software Manager",
+            city: "Chicago"
+        }
+    },
+    {
+        firstName: "Giorgio",
+        lastName: "Polvara",
+        skills: ["HTML", "JS", "React"],
+        class: "Mar2",
+        studentLikes: 0,
+        job: {
+            company: "Amazon",
+            position: "Senior developer",
+            city: "Barcelona"
+        }
+    },
 
 ];
 
 //YOUR CODE HERE
 
+// EJECC 1
+for (const key in mentors) {
+    let firstName = mentors[key].firstName;
+    let lastName = mentors[key].lastName;
+    let skills = mentors[key].skills;
+    let React = skills.includes("React");
+
+    if (React) {
+        console.log(`Hi, my name is ${firstName} ${lastName}. I work in Barcelona and i know React.`);
+
+    }
+}
+// EJECC 2
+for (const key in mentors) {
+
+    let city = mentors[key].job.city;
+    let class1 = "Jun1";
+
+    if (city === "Barcelona") {
+
+        mentors[key].class = class1;
+        mentors[key].skills.push("SQL");
+
+        console.log(mentors[key]);
+    }
+}
+//EJCC 3
+for (const key in mentors) {
+
+    mentors[key].addSkill = function(dato) {
+
+        return this.skills.push(dato)
+
+    }
+
+}
+
+
+//EJECC 4
+function addSkill(mentors, newSkill) {
+    for (const key in mentors) {
+
+        mentors[key].skills.push("Python")
+        console.log(mentors[key].newSkill)
+
+        // uno por uno y agregar la habilidad
+        //your code here
+    }
+}
+
+/*
+addSkill(mentors, "python");
+
+
+mentors[0].addSkill("Pascal")
+
+mentors[1].addSkill("Fraces")
+console.log(mentors);*/
