@@ -55,7 +55,7 @@ var mentors = [{
             company: "Google",
             position: "Senior developer",
             city: "Barcelona"
-        }
+        },
     },
     {
         firstName: "Leo",
@@ -67,7 +67,8 @@ var mentors = [{
             company: "FC Barcelona",
             position: "Player",
             city: "Barcelona"
-        }
+        },
+
     },
     {
         firstName: "John",
@@ -79,7 +80,7 @@ var mentors = [{
             company: "Facebook",
             position: "Software Manager",
             city: "Chicago"
-        }
+        },
     },
     {
         firstName: "Giorgio",
@@ -91,7 +92,8 @@ var mentors = [{
             company: "Amazon",
             position: "Senior developer",
             city: "Barcelona"
-        }
+        },
+
     },
 
 ];
@@ -106,7 +108,7 @@ for (const key in mentors) {
     let React = skills.includes("React");
 
     if (React) {
-        console.log(`Hi, my name is ${firstName} ${lastName}. I work in Barcelona and i know React.`);
+        //   console.log(`Hi, my name is ${firstName} ${lastName}. I work in Barcelona and i know React.`);
 
     }
 }
@@ -121,7 +123,7 @@ for (const key in mentors) {
         mentors[key].class = class1;
         mentors[key].skills.push("SQL");
 
-        console.log(mentors[key]);
+        //  console.log(mentors[key]);
     }
 }
 //EJCC 3
@@ -129,30 +131,83 @@ for (const key in mentors) {
 
     mentors[key].addSkill = function(dato) {
 
-        return this.skills.push(dato)
-
-    }
-
+            return this.skills.push(dato)
+        }
+        // console.log(mentors[key]);
 }
-
-
 //EJECC 4
 function addSkill(mentors, newSkill) {
+
     for (const key in mentors) {
 
-        mentors[key].skills.push("Python")
-        console.log(mentors[key].newSkill)
+        mentors[key].skills.push(newSkill);
 
-        // uno por uno y agregar la habilidad
-        //your code here
+        // console.log(mentors[key].skills)
     }
 }
+addSkill(mentors, "PHP");
 
-/*
-addSkill(mentors, "python");
+// EJECC 5
+
+function removeSkill(mentors, newSkill) {
+
+    for (const key in mentors) {
+
+        let skills = mentors[key].skills;
+
+        if (skills.includes(newSkill)) {
+            const indexSkills = (skill) => skill === newSkill;
+
+            skills.splice(skills.findIndex(indexSkills), 1);
+
+        }
+        console.log(mentors[key].skills)
+    }
+}
+removeSkill(mentors, "Node");
+
+// EJECC 6
+
+function mentorWithMoreSkills(mentors) {
+
+    let mentorWithSkills;
+
+    mentors.forEach(mentor => {
+        if (mentorWithSkills === undefined) {
+            mentorWithSkills = mentor
+        }
+
+        if (mentorWithSkills.skills.length < mentor.skills.length) {
+            mentorWithSkills = mentor
+        }
+    });
+
+    console.log(mentorWithSkills.firstName);
+}
+mentorWithMoreSkills(mentors)
+
+//EJECC 7
 
 
-mentors[0].addSkill("Pascal")
+for (const key in mentors) {
 
-mentors[1].addSkill("Fraces")
-console.log(mentors);*/
+    mentors[key].addStudentLikes = function() {
+
+        return this.studentLikes = this.studentLikes + 1;
+    }
+}
+mentors[1].addStudentLikes();
+mentors[3].addStudentLikes();
+
+console.log(mentors);
+
+//EJECC 8
+function addStudentLikes(mentors) {
+
+    for (const mentor of mentors) {
+
+        mentor.studentLikes = mentor.studentLikes + 1;
+    }
+}
+addStudentLikes(mentors);
+console.log(mentors);
