@@ -1,42 +1,31 @@
 function setAlarm() {
 
     const cronometro = document.getElementById("timeRemaining")
-    const setButton = document.getElementById("set")
-    const stopButton = document.getElementById("stop")
     let setAlarm = document.getElementById("alarmSet")
     let hora = setAlarm.valueAsNumber
+    console.log(hora)
+    console.log(hora < 10)
 
     if (hora < 10) {
 
-        cronometro.innerText = "Time Remaining: 00:0" + hora
+        cronometro.innerText = "Time Remaining: 00:" + hora
 
     } else {
-        cronometro.innerText = "Time Remaining: 00: " + hora
+        cronometro.innerText = "Time Remaining: 00:0 " + hora
 
     }
 
-    /* let seconds = new Date(setAlarm.valueAsNumber).getSeconds()
-     let minutes = new Date(setAlarm.valueAsNumber).getMinutes()*/
-
-    /* if (seconds < 10) {
-
-         cronometro.innerText = "Time Remaining: 00:0" + seconds
-
-     } else {
-         cronometro.innerText = "Time Remaining: " + minutes + ":" + seconds
-
-     }*/
-
     let counter = hora;
-    console.log(hora)
 
     function countdown(counter) {
         if (counter > 0) {
             counter--;
             setTimeout(function() { countdown(counter) }, 1000);
-            console.log(counter);
-            cronometro.innerHTML = "Time Remaining: 00:0" + counter
-            console.log(cronometro)
+            cronometro.innerText = "Time Remaining: 00:" + (counter < 10 ? "0" + counter : counter)
+        } else {
+
+            playAlarm()
+
         }
     }
     countdown(counter);
@@ -62,6 +51,9 @@ function playAlarm() {
 
 function pauseAlarm() {
     audio.pause();
+    let cambioColor = document.querySelector(".centre");
+    cambioColor.style.backgroundColor = `#ffa500`;
+
 }
 
 window.onload = setup;
