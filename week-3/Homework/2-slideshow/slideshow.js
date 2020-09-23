@@ -4,7 +4,7 @@ let back = document.getElementById("back")
 let autoBack = document.getElementById("auto-back")
 let forward = document.getElementById("forward")
 let autoForward = document.getElementById("auto-forward")
-let stop = document.getElementById("stop")
+let parar = document.getElementById("stop")
 let img = document.getElementById("images")
 
 let images = [{
@@ -44,6 +44,12 @@ function retroImages(array) {
     img.src = array[index].enlace
     console.log(array[index])
 }
+let intervalo;
+
+function stop() {
+    clearInterval(intervalo);
+}
+
 
 forward.addEventListener("click", () => {
     moverImages(images);
@@ -51,4 +57,14 @@ forward.addEventListener("click", () => {
 
 back.addEventListener("click", () => {
     retroImages(images);
+})
+autoForward.addEventListener("click", () => {
+    intervalo = setInterval(function() { moverImages(images) }, 1000);
+})
+autoBack.addEventListener("click", () => {
+    intervalo = setInterval(function() { retroImages(images) }, 1000);
+})
+
+parar.addEventListener("click", () => {
+    stop();
 })
