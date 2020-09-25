@@ -106,13 +106,14 @@ for (const key in mentors) {
     let lastName = mentors[key].lastName;
     let skills = mentors[key].skills;
     let React = skills.includes("React");
+    let city = mentors[key].job.city;
 
-    if (React) {
-        //   console.log(`Hi, my name is ${firstName} ${lastName}. I work in Barcelona and i know React.`);
+    if (React && city == "Barcelona") {
+        console.log(`Hi, my name is ${firstName} ${lastName}. I work in Barcelona and i know React.`);
 
     }
 }
-// EJECC 2
+//EJECC 2
 for (const key in mentors) {
 
     let city = mentors[key].job.city;
